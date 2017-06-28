@@ -71,12 +71,8 @@ def yelpGrowth():
             yearDict[year] += 1
         else:
             yearDict[year] = 1
-    sorted_year = sorted(yearDict, key=yearDict.__getitem__)
-    for key in sorted_year[::-1]:
-        if key in ['2012','2016','2015','2014','2013']:
-            tempArr = []
-            tempArr.append(key)
-            tempArr.append(yearDict[key])
-            yearArr.append(tempArr)
+    sorted_year = sorted(yearDict)
+    for key in sorted_year:
+            yearArr.append(int(yearDict[key]))
     return yearArr
 

@@ -68,12 +68,11 @@
     return yelpTip;
     }
 </script>
-<script src="{% static 'charts/js/funnel.js' %}"></script>
+<script src="{% static 'charts/js/linechart.js' %}"></script>
 
 <link type="image/png" rel=icon href={% static 'charts/images/yelp.png' %}>
 </head>
 <body>
-
 <div class="loader" style="background: url({% static 'charts/images/loading.gif' %}) 50% 50% no-repeat rgb(249,249,249);"></div>
 <div class="container">
     <div class="row">
@@ -115,7 +114,7 @@
             <div id="chartContainer"></div>
         </div>
         <div class="col-md-6">
-            <div id="funnel-container"></div>
+            <div id="line-container"></div>
         </div>
     </div>
 </div>
