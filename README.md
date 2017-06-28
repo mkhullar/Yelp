@@ -5,9 +5,19 @@ Yelp Data Visualization
 
 Install Mongodb
 
-load the dataset in mongoDb
+Load the dataset in MongoDb
+
+Command:
 ```
-mongoimport -d yelp -c business --file <json_file>
+mongoimport -d yelp -c <collection_name> --file <json_file>
+```
+Example:
+```
+mongoimport -d yelp -c business --file yelp_academic_dataset_business.json
+mongoimport -d yelp -c checkin --file yelp_academic_dataset_checkin.json
+mongoimport -d yelp -c review --file yelp_academic_dataset_review.json
+mongoimport -d yelp -c tip --file yelp_academic_dataset_tip.json
+mongoimport -d yelp -c user --file yelp_academic_dataset_user.json
 ```
 
 run mongodemon
