@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     {% load staticfiles %}
-    <link type="text/css" rel="stylesheet" href="{% static 'music/css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'music/bootstrap/css/bootstrap.min.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'charts/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'charts/bootstrap/css/bootstrap.min.css' %}">
 
 {#    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmGfUkQ13eke_Q3iCLD4OHgvsSmsEou6Q"></script>#}
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
@@ -18,7 +18,7 @@
     <script src="https://code.highcharts.com/modules/heatmap.js"></script>
     <script src="https://code.highcharts.com/modules/funnel.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="{% static 'music/js/d3.min.js' %}"></script>
+    <script src="{% static 'charts/js/d3.min.js' %}"></script>
 
 <script>
         function cent() {
@@ -35,7 +35,7 @@
         }
 
 </script>
-    <script src="{% static 'music/js/maps.js' %}"></script>
+    <script src="{% static 'charts/js/maps.js' %}"></script>
 <script>
     function getStars() {
 
@@ -46,7 +46,7 @@
     return starArr;
 }
 </script>
-    <script src="{% static 'music/js/chart.js' %}"></script>
+    <script src="{% static 'charts/js/chart.js' %}"></script>
 <script>
     function getCheckTime() {
         var checkTimeArr = [];
@@ -56,8 +56,8 @@
     return checkTimeArr;
     }
 </script>
-<script src="{% static 'music/js/canvasjs.min.js' %}"></script>
-<script src="{% static 'music/js/barchart.js' %}"></script>
+<script src="{% static 'charts/js/canvasjs.min.js' %}"></script>
+<script src="{% static 'charts/js/barchart.js' %}"></script>
 
 <script>
     function yelpTip() {
@@ -68,16 +68,16 @@
     return yelpTip;
     }
 </script>
-<script src="{% static 'music/js/funnel.js' %}"></script>
+<script src="{% static 'charts/js/funnel.js' %}"></script>
 
 
 </head>
 <body>
-<div class="loader" style="background: url({% static 'music/images/loading.gif' %}) 50% 50% no-repeat rgb(249,249,249);"></div>
+<div class="loader" style="background: url({% static 'charts/images/loading.gif' %}) 50% 50% no-repeat rgb(249,249,249);"></div>
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-                <form  action="{% url 'music:index' %}" method="post">
+                <form  action="{% url 'charts:index' %}" method="post">
                     {% csrf_token %}
                     <div class="row" style="padding: 10px 0 10px 0;">
                         <div class="col-md-6">
