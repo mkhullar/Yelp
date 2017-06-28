@@ -20,7 +20,7 @@ mongoimport -d yelp -c tip --file yelp_academic_dataset_tip.json
 mongoimport -d yelp -c user --file yelp_academic_dataset_user.json
 ```
 
-run mongodemon
+Run Mongo Demon
 
 ```
 mongod
