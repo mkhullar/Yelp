@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load staticfiles %}
+    <link type="text/css" rel="stylesheet" href="{% static 'music/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'music/bootstrap/css/bootstrap.min.css' %}">
+
+{#    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmGfUkQ13eke_Q3iCLD4OHgvsSmsEou6Q"></script>#}
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+    $(window).load(function() {
+	    $(".loader").fadeOut("slow");
+})
+</script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+    <script src="https://code.highcharts.com/modules/funnel.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="{% static 'music/js/d3.min.js' %}"></script>
+
+<script>
+        function cent() {
+            {% for c in center %}
+            return new google.maps.LatLng({{ c.latitude }}, {{ c.longitude }});
+            {% endfor %}
+        }
+        function getPoints() {
+            var retArr = [];
+            {% for dat in data %}
+                retArr.push(new google.maps.LatLng({{ dat.latitude }}, {{ dat.longitude }}));
+            {% endfor %}
+        return retArr;
+        }
+
+</script>
+    <script src="{% static 'music/js/maps.js' %}"></script>
+<script>
+    function getStars() {
+
+        var starArr =[];
+        {% for star in stars %}
+            starArr.push({{ star }});
+        {% endfor %}
+    return starArr;
+}
+</script>
+    <script src="{% static 'music/js/chart.js' %}"></script>
+<script>
+    function getCheckTime() {
+        var checkTimeArr = [];
+        {%  for ct in CheckTime %}
+            checkTimeArr.push({{ ct|safe }});
+        {% endfor %}
+    return checkTimeArr;
+    }
+</script>
+<script src="{% static 'music/js/canvasjs.min.js' %}"></script>
+<script src="{% static 'music/js/barchart.js' %}"></script>
+
+<script>
+    function yelpTip() {
+         var yelpTip = [];
+        {% for yg in yelpGrowth %}
+            yelpTip.push({{ yg|safe }});
+        {% endfor %}
+    return yelpTip;
+    }
+</script>
+<script src="{% static 'music/js/funnel.js' %}"></script>
+
+
+</head>
+<body>
+<div class="loader" style="background: url({% static 'music/images/loading.gif' %}) 50% 50% no-repeat rgb(249,249,249);"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+                <form  action="{% url 'music:index' %}" method="post">
+                    {% csrf_token %}
+                    <div class="row" style="padding: 10px 0 10px 0;">
+                        <div class="col-md-6">
+                            <select class="form-control" name="city_name">
+                                {% for city in cities %}
+                                    <option value="{{ city }}" {% if city == selected_city %} selected {% endif %}>{{ city }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-success" value="Get Data">
+                        </div>
+                    </div>
+                </form>
+        </div>
+    </div>
+    <div class="row" style="padding-bottom: 10px">
+        <div class="col-md-6">
+            <div id="map"></div>
+        </div>
+{#        <div id="floating-panel">#}
+{#              <button onclick="toggleHeatmap()">Toggle Heatmap</button>#}
+{#              <button onclick="changeGradient()">Change gradient</button>#}
+{#              <button onclick="changeRadius()">Change radius</button>#}
+{#              <button onclick="changeOpacity()">Change opacity</button>#}
+{#            </div>#}
+        <div class="col-md-6" >
+            <div id="container"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div id="chartContainer"></div>
+        </div>
+        <div class="col-md-6">
+            <div id="funnel-container"></div>
+        </div>
+    </div>
+</div>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmGfUkQ13eke_Q3iCLD4OHgvsSmsEou6Q&libraries=visualization&callback=initMap">
+    </script>
+</body>
+</html>
