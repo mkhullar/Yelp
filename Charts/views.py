@@ -76,3 +76,6 @@ def yelpGrowth():
             yearArr.append(int(yearDict[key]))
     return yearArr
 
+
+def preloader(request):
+    return render(request, 'Charts/preloder.html')

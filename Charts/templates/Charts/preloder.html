@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <META HTTP-EQUIV="refresh" CONTENT="10;URL={% url 'charts:index' %}">
+    <title>Yelp</title>
+      {% load staticfiles %}
+    <link type="image/png" rel=icon href={% static 'charts/images/yelp.png' %}>
+    <link type="text/css" rel="stylesheet" href="{% static 'charts/css/style.css' %}">
+</head>
+<body>
+<script type="text/javascript">
+    $(window).load(function() {
+	    $(".loader").fadeOut("slow");
+})
+</script>
+<div class="loader" style="background: url({% static 'charts/images/loading.gif' %}) 50% 50% no-repeat rgb(249,249,249);"></div>
+</body>
+</html>
