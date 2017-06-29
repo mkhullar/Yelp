@@ -29,4 +29,4 @@ mongod
 Run the Django Project
 
 ## Preview
-![alt text](https://preview.ibb.co/b2BDa5/PyMongo.png)
+![alt text](https://preview.ibb.co/m9WkoQ/PyMongo.png)
